@@ -1,4 +1,4 @@
-[Русская версия](README.ru.md)
+[Русская версия](README.ru.md) · [Nederlandse versie](README.nl.md)
 
 # HealthSync Dashboard Card
 
@@ -31,7 +31,7 @@ integration's native sensors and Recorder history without external frontend depe
 - Compact scrollable recent-workout list instead of expanding the whole card
 - Optional `show_workouts_tab` switch in the graphical editor and YAML
 - Compact responsive layout for Masonry and Sections dashboards
-- English and Russian interface
+- English, Russian and Dutch interface
 
 ## Requirements
 

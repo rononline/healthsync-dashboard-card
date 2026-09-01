@@ -1,9 +1,9 @@
-/* HealthSync Dashboard Card v0.5.2
+/* HealthSync Dashboard Card v0.6.0
  * A dependency-free Lovelace card for mannotfood/healthsync.
  * MIT License
  */
 
-const HS_VERSION = "0.5.2";
+const HS_VERSION = "0.6.0";
 const HS_WORKOUT_SLOTS = Array.from({ length: 10 }, (_, index) => `workout_${index + 1}`);
 const HS_METRICS = [
   "last_sync", "steps", "active_calories", "heart_rate",
@@ -171,6 +171,28 @@ const HS_TRANSLATIONS = {
     started: "Начало", showWorkout: "Открыть сущность тренировки",
     historyUnavailable: "История недоступна. Текущие значения продолжат работать.", source: "HealthSync", received: "Получено", exactRecorded: "Измерено",
   },
+  nl: {
+    title: "HealthSync", synced: "Gesynchroniseerd", noData: "Geen HealthSync-sensoren gevonden",
+    noDataHint: "Synchroniseer de HealthSync-app \u00e9\u00e9n keer, of selecteer entiteiten in de kaartconfiguratie.",
+    activity: "Activiteit \u00b7 7 dagen", sleep: "Slaapfasen \u00b7 7 dagen", heart: "Hartslag \u00b7 24 uur",
+    steps: "Stappen", calories: "Actieve calorie\u00ebn", sleepDuration: "Slaap",
+    flightsClimbed: "Traplopen", exerciseTime: "Trainingstijd", restingEnergy: "Rustenergie",
+    distance: "Wandelen + hardlopen", vo2Max: "VO\u2082 max", weight: "Gewicht",
+    restingHeartRate: "Hartslag in rust", bloodPressureSystolic: "Bovendruk",
+    bloodPressureDiastolic: "Onderdruk", walkingHeartRate: "Hartslag bij wandelen",
+    heartRateRecovery: "Hartslagherstel", afibBurden: "AFib-belasting", bloodOxygen: "Zuurstof in bloed",
+    respiratoryRate: "Ademhalingsfrequentie", bodyTemperature: "Lichaamstemperatuur", bloodGlucose: "Bloedglucose",
+    bodyMassIndex: "BMI", bodyFatPercentage: "Vetpercentage", leanBodyMass: "Vetvrije massa",
+    height: "Lengte", waistCircumference: "Tailleomvang",
+    deep: "Diep", core: "Kern", rem: "REM", awake: "Wakker", unspecified: "Niet gespecificeerd",
+    heartRate: "Hartslag", hrv: "HRV", fellAsleep: "In slaap gevallen", wokeUp: "Wakker geworden", today: "Vandaag",
+    switchChart: "Grafiek wisselen",
+    overviewTab: "Overzicht", workoutsTab: "Trainingen", latestWorkout: "Laatste training",
+    workoutDuration: "Duur", workoutDistance: "Afstand", workoutCalories: "Calorie\u00ebn",
+    recentWorkouts: "Recente trainingen", noWorkouts: "Nog geen trainingen ontvangen",
+    started: "Gestart", showWorkout: "Trainingsentiteit openen",
+    historyUnavailable: "Geschiedenis is niet beschikbaar. Actuele waarden blijven werken.", source: "HealthSync", received: "Ontvangen", recorded: "Geregistreerd uur", exactRecorded: "Geregistreerd",
+  },
 };
 
 const HS_EDITOR_LABELS = {
@@ -246,6 +268,100 @@ const HS_EDITOR_LABELS = {
     last_workout_type: "Тип последней тренировки", last_workout_duration: "Длительность последней тренировки",
     last_workout_distance: "Дистанция последней тренировки", last_workout_calories: "Калории последней тренировки",
     recent_workouts: "Недавние тренировки",
+  },
+  nl: {
+    title: "Titel", language: "Taal", device_id: "HealthSync-apparaat voor exacte geschiedenis",
+    days: "Geschiedenisperiode", step_goal: "Dagelijks stappendoel", calorie_goal: "Dagelijks doel actieve calorie\u00ebn",
+    show_activity: "Activiteitsgrafiek tonen", show_sleep: "Slaapgrafiek tonen",
+    show_heart_rate: "Hartslaggrafiek tonen",
+    show_workouts_tab: "Tabblad trainingen tonen",
+    show_steps_metric: "Stappen", show_calories_metric: "Actieve calorie\u00ebn",
+    show_sleep_metric: "Slaap", show_heart_metric: "Hartslag", show_hrv_metric: "HRV",
+    show_sleep_onset_metric: "In slaap gevallen", show_sleep_wake_metric: "Wakker geworden",
+    show_flights_metric: "Traplopen", show_exercise_metric: "Trainingstijd",
+    show_resting_energy_metric: "Rustenergie", show_distance_metric: "Afstand wandelen + hardlopen",
+    show_vo2_max_metric: "VO\u2082 max", show_weight_metric: "Gewicht",
+    show_resting_heart_rate_metric: "Hartslag in rust", show_blood_pressure_systolic_metric: "Bovendruk",
+    show_blood_pressure_diastolic_metric: "Onderdruk", show_walking_heart_rate_metric: "Hartslag bij wandelen",
+    show_heart_rate_recovery_metric: "Hartslagherstel", show_afib_burden_metric: "AFib-belasting",
+    show_blood_oxygen_metric: "Zuurstof in bloed", show_respiratory_rate_metric: "Ademhalingsfrequentie",
+    show_body_temperature_metric: "Lichaamstemperatuur", show_blood_glucose_metric: "Bloedglucose",
+    show_body_mass_index_metric: "BMI", show_body_fat_percentage_metric: "Vetpercentage",
+    show_lean_body_mass_metric: "Vetvrije massa", show_height_metric: "Lengte",
+    show_waist_circumference_metric: "Tailleomvang",
+    last_sync: "Laatste synchronisatie", steps: "Stappen", active_calories: "Actieve calorie\u00ebn",
+    sleep_duration: "Slaap afgelopen nacht", sleep_onset: "In slaap gevallen", sleep_wake: "Wakker geworden",
+    heart_rate: "Hartslag", heart_rate_variability: "Hartslagvariabiliteit",
+    flights_climbed: "Traplopen vandaag", exercise_time: "Trainingstijd vandaag",
+    resting_energy: "Rustenergie vandaag", distance: "Afstand wandelen + hardlopen vandaag",
+    vo2_max: "VO\u2082 max", weight: "Gewicht",
+    resting_heart_rate: "Hartslag in rust", blood_pressure_systolic: "Bloeddruk (systolisch)",
+    blood_pressure_diastolic: "Bloeddruk (diastolisch)", walking_heart_rate: "Hartslag bij wandelen",
+    heart_rate_recovery: "Hartslagherstel", afib_burden: "AFib-belasting", blood_oxygen: "Zuurstof in bloed",
+    respiratory_rate: "Ademhalingsfrequentie", body_temperature: "Lichaamstemperatuur", blood_glucose: "Bloedglucose",
+    body_mass_index: "BMI", body_fat_percentage: "Vetpercentage",
+    lean_body_mass: "Vetvrije massa", height: "Lengte", waist_circumference: "Tailleomvang",
+    last_workout_type: "Type laatste training", last_workout_duration: "Duur laatste training",
+    last_workout_distance: "Afstand laatste training", last_workout_calories: "Calorie\u00ebn laatste training",
+    recent_workouts: "Recente trainingen",
+  },
+};
+
+const HS_RESOLVE_LANG = (value) => {
+  const code = String(value || "").toLowerCase();
+  if (code.startsWith("ru")) return "ru";
+  if (code.startsWith("nl")) return "nl";
+  return "en";
+};
+
+const HS_EDITOR_UI = {
+  en: {
+    automatic: "Automatic", daysUnit: "days", stepsUnit: "steps",
+    sections: "Visible sections", entities: "Metric entities", workout: "Workout",
+    tiles: "Metric tiles", tilesHelp: "Drag rows by the handle to change the tile order on the card.",
+    move: "Move",
+    discovered: (count) => `Automatically discovered ${count} HealthSync entities. You can override any of them below.`,
+    notDiscovered: "No HealthSync entities found yet. Complete one synchronization or select entities manually.",
+  },
+  ru: {
+    automatic: "Автоматически", daysUnit: "дн.", stepsUnit: "шагов",
+    sections: "Отображаемые разделы", entities: "Сущности показателей", workout: "Тренировка",
+    tiles: "Плитки показателей", tilesHelp: "Перетаскивайте строки за ручку, чтобы изменить порядок плиток на карточке.",
+    move: "Перетащить",
+    discovered: (count) => `Автоматически найдено сущностей HealthSync: ${count}. Любую из них можно заменить вручную ниже.`,
+    notDiscovered: "Сущности HealthSync пока не найдены. Выполните хотя бы одну синхронизацию или выберите сущности вручную.",
+  },
+  nl: {
+    automatic: "Automatisch", daysUnit: "dgn.", stepsUnit: "stappen",
+    sections: "Zichtbare secties", entities: "Entiteiten voor metingen", workout: "Training",
+    tiles: "Meettegels", tilesHelp: "Sleep rijen aan de greep om de volgorde van de tegels op de kaart te wijzigen.",
+    move: "Verplaatsen",
+    discovered: (count) => `Automatisch ${count} HealthSync-entiteiten gevonden. Je kunt ze hieronder allemaal handmatig overschrijven.`,
+    notDiscovered: "Nog geen HealthSync-entiteiten gevonden. Voer minimaal \u00e9\u00e9n synchronisatie uit of selecteer de entiteiten handmatig.",
+  },
+};
+
+const HS_UI = (lang) => HS_EDITOR_UI[lang] || HS_EDITOR_UI.en;
+
+const HS_WORKOUT_NAMES = {
+  nl: {
+    running: "Hardlopen", outdoorrun: "Hardlopen buiten", indoorrun: "Hardlopen binnen",
+    walking: "Wandelen", hiking: "Wandeltocht", cycling: "Fietsen",
+    outdoorcycle: "Fietsen buiten", indoorcycle: "Fietsen binnen",
+    swimming: "Zwemmen", poolswim: "Baanzwemmen", openwaterswim: "Openwaterzwemmen",
+    traditionalstrengthtraining: "Krachttraining", functionalstrengthtraining: "Functionele krachttraining",
+    strengthtraining: "Krachttraining", weighttraining: "Krachttraining", hiit: "HIIT", cardio: "Cardio",
+    highintensityintervaltraining: "HIIT", coretraining: "Coretraining", crosstraining: "Crosstraining",
+    elliptical: "Crosstrainer", rowing: "Roeien", stairclimbing: "Traplopen", stairs: "Traplopen",
+    yoga: "Yoga", pilates: "Pilates", dance: "Dansen", barre: "Barre",
+    flexibility: "Rekken en strekken", preparationandrecovery: "Rekken en strekken", cooldown: "Cooldown",
+    mixedcardio: "Gemengde cardio", mindandbody: "Mind & body", wheelchair: "Rolstoelrit",
+    boxing: "Boksen", kickboxing: "Kickboksen", martialarts: "Vechtsport", climbing: "Klimmen",
+    tennis: "Tennis", badminton: "Badminton", tabletennis: "Tafeltennis", squash: "Squash",
+    soccer: "Voetbal", basketball: "Basketbal", volleyball: "Volleybal", hockey: "Hockey",
+    golf: "Golf", skatingsports: "Schaatsen", snowsports: "Wintersport", surfingsports: "Surfen",
+    paddlesports: "Peddelsport", sailing: "Zeilen", equestriansports: "Paardrijden",
+    play: "Spelen", other: "Overig",
   },
 };
 
@@ -390,8 +506,9 @@ class HealthSyncDashboardCard extends HTMLElement {
   }
 
   static getConfigForm() {
-    const lang = (globalThis.navigator?.language || "en").toLowerCase().startsWith("ru") ? "ru" : "en";
+    const lang = HS_RESOLVE_LANG(globalThis.navigator?.language);
     const labels = HS_EDITOR_LABELS[lang];
+    const ui = HS_UI(lang);
     const entityFields = HS_METRICS.map((name) => ({
       name,
       selector: { entity: { filter: { domain: "sensor" } } },
@@ -402,22 +519,23 @@ class HealthSyncDashboardCard extends HTMLElement {
         {
           name: "language", default: "auto",
           selector: { select: { mode: "dropdown", options: [
-            { value: "auto", label: lang === "ru" ? "Автоматически" : "Automatic" },
+            { value: "auto", label: ui.automatic },
             { value: "en", label: "English" },
             { value: "ru", label: "Русский" },
+            { value: "nl", label: "Nederlands" },
           ] } },
         },
         {
           type: "grid", name: "", flatten: true, column_min_width: "160px",
           schema: [
-            { name: "days", default: 7, selector: { number: { min: 2, max: 31, step: 1, mode: "box", unit_of_measurement: lang === "ru" ? "дн." : "days" } } },
-            { name: "step_goal", default: 10000, selector: { number: { min: 1, max: 100000, step: 500, mode: "box", unit_of_measurement: lang === "ru" ? "шагов" : "steps" } } },
+            { name: "days", default: 7, selector: { number: { min: 2, max: 31, step: 1, mode: "box", unit_of_measurement: ui.daysUnit } } },
+            { name: "step_goal", default: 10000, selector: { number: { min: 1, max: 100000, step: 500, mode: "box", unit_of_measurement: ui.stepsUnit } } },
             { name: "calorie_goal", default: 600, selector: { number: { min: 1, max: 10000, step: 50, mode: "box", unit_of_measurement: "kcal" } } },
           ],
         },
         {
           type: "expandable", name: "", flatten: true, expanded: true,
-          title: lang === "ru" ? "Отображаемые разделы" : "Visible sections", icon: "mdi:view-dashboard-outline",
+          title: ui.sections, icon: "mdi:view-dashboard-outline",
           schema: [
             { name: "show_activity", default: true, selector: { boolean: {} } },
             { name: "show_sleep", default: true, selector: { boolean: {} } },
@@ -428,11 +546,11 @@ class HealthSyncDashboardCard extends HTMLElement {
         { name: "device_id", selector: { device: { filter: { integration: "healthsync" } } } },
         {
           type: "expandable", name: "entities", flatten: false,
-          title: lang === "ru" ? "Сущности показателей" : "Metric entities", icon: "mdi:database-edit-outline",
+          title: ui.entities, icon: "mdi:database-edit-outline",
           schema: entityFields,
         },
       ],
-      computeLabel: (schema) => labels[schema.name] || (/^workout_\d+$/.test(schema.name) ? `${lang === "ru" ? "Тренировка" : "Workout"} ${schema.name.slice(8)}` : schema.name),
+      computeLabel: (schema) => labels[schema.name] || (/^workout_\d+$/.test(schema.name) ? `${ui.workout} ${schema.name.slice(8)}` : schema.name),
       computeHelper: () => undefined,
       assertConfig: (config) => {
         if (config.entities !== undefined && (!config.entities || typeof config.entities !== "object" || Array.isArray(config.entities))) {
@@ -451,7 +569,7 @@ class HealthSyncDashboardCard extends HTMLElement {
   _lang() {
     const configured = this.config?.language;
     const value = ((configured && configured !== "auto" ? configured : this._hass?.language) || "en").toLowerCase();
-    return value.startsWith("ru") ? "ru" : "en";
+    return HS_RESOLVE_LANG(value);
   }
 
   _t(key) { return HS_TRANSLATIONS[this._lang()][key] || HS_TRANSLATIONS.en[key] || key; }
@@ -766,7 +884,10 @@ class HealthSyncDashboardCard extends HTMLElement {
   }
 
   _workoutName(value) {
-    const text = String(value || "").replaceAll("_", " ").replace(/([a-z0-9])([A-Z])/g, "$1 $2").trim();
+    const raw = String(value || "");
+    const localized = HS_WORKOUT_NAMES[this._lang()]?.[raw.toLowerCase().replace(/[^a-z0-9]/g, "")];
+    if (localized) return localized;
+    const text = raw.replaceAll("_", " ").replace(/([a-z0-9])([A-Z])/g, "$1 $2").trim();
     return text ? text.replace(/\b\w/g, (letter) => letter.toUpperCase()) : this._t("noWorkouts");
   }
 
@@ -916,7 +1037,9 @@ class HealthSyncDashboardCard extends HTMLElement {
 
   _historyTitle(kind) {
     const days=Math.max(2,Math.min(31,Number(this.config.days)||7));
-    if(this._lang()!=="ru") return `${kind==="activity"?"Activity":"Sleep stages"} · ${days} ${days===1?"day":"days"}`;
+    const lang=this._lang();
+    if(lang==="nl") return `${kind==="activity"?"Activiteit":"Slaapfasen"} · ${days} ${days===1?"dag":"dagen"}`;
+    if(lang!=="ru") return `${kind==="activity"?"Activity":"Sleep stages"} · ${days} ${days===1?"day":"days"}`;
     const category=new Intl.PluralRules("ru").select(days);
     const dayWord=category==="one"?"день":category==="few"?"дня":"дней";
     return `${kind==="activity"?"Активность":"Фазы сна"} · ${days} ${dayWord}`;
@@ -1205,15 +1328,16 @@ class HealthSyncDashboardCardEditor extends HTMLElement {
 
   _render() {
     if (!this._hass || !globalThis.document) return;
-    const lang = (this._hass.language || globalThis.navigator?.language || "en").toLowerCase().startsWith("ru") ? "ru" : "en";
+    const lang = HS_RESOLVE_LANG(this._hass.language || globalThis.navigator?.language);
+    const ui = HS_UI(lang);
     const detected = HealthSyncDashboardCard.discoverEntities(this._hass);
     const base = HealthSyncDashboardCard.getConfigForm();
     const count = Object.keys(detected).length;
     this.shadowRoot.innerHTML = `<style>
       :host{display:block}.entity-note{margin:0 0 10px;padding:10px 12px;border-radius:10px;background:var(--secondary-background-color);color:var(--secondary-text-color);font-size:12px;line-height:1.4}
       .tile-editor{margin:0 0 12px;border:1px solid var(--divider-color);border-radius:12px;overflow:hidden}.tile-editor summary{display:flex;align-items:center;gap:10px;padding:12px;cursor:pointer;font-weight:600}.tile-editor summary ha-icon{color:var(--secondary-text-color);width:20px}.tile-help{padding:0 12px 10px;color:var(--secondary-text-color);font-size:12px;line-height:1.4}.tile-list{display:grid;gap:5px;padding:0 10px 10px}.tile-control-row{display:grid;grid-template-columns:28px minmax(0,1fr) auto;align-items:center;gap:7px;min-height:42px;padding:5px 8px;border-radius:9px;background:var(--secondary-background-color);transition:opacity .12s ease}.tile-control-row.dragging{opacity:.45}.tile-drag-handle{display:grid;place-items:center;align-self:stretch;color:var(--secondary-text-color);font-size:19px;cursor:grab;touch-action:none;user-select:none}.tile-drag-handle:active{cursor:grabbing}.tile-control-label{min-width:0}.tile-control-row ha-switch{margin-inline-start:8px}
-    </style><div class="entity-note">${count ? (lang === "ru" ? `Автоматически найдено сущностей HealthSync: ${count}. Любую из них можно заменить вручную ниже.` : `Automatically discovered ${count} HealthSync entities. You can override any of them below.`) : (lang === "ru" ? "Сущности HealthSync пока не найдены. Выполните хотя бы одну синхронизацию или выберите сущности вручную." : "No HealthSync entities found yet. Complete one synchronization or select entities manually.")}</div>
-    <details class="tile-editor"><summary><ha-icon icon="mdi:view-grid-outline"></ha-icon><span>${lang === "ru" ? "Плитки показателей" : "Metric tiles"}</span></summary><div class="tile-help">${lang === "ru" ? "Перетаскивайте строки за ручку, чтобы изменить порядок плиток на карточке." : "Drag rows by the handle to change the tile order on the card."}</div><div class="tile-list"></div></details>`;
+    </style><div class="entity-note">${count ? ui.discovered(count) : ui.notDiscovered}</div>
+    <details class="tile-editor"><summary><ha-icon icon="mdi:view-grid-outline"></ha-icon><span>${ui.tiles}</span></summary><div class="tile-help">${ui.tilesHelp}</div><div class="tile-list"></div></details>`;
     const form = document.createElement("ha-form");
     form.hass = this._hass;
     form.data = { ...this._config };
@@ -1237,14 +1361,14 @@ class HealthSyncDashboardCardEditor extends HTMLElement {
   _renderTileControls() {
     const list = this.shadowRoot?.querySelector?.(".tile-list");
     if (!list) return;
-    const lang = (this._hass?.language || globalThis.navigator?.language || "en").toLowerCase().startsWith("ru") ? "ru" : "en";
+    const lang = HS_RESOLVE_LANG(this._hass?.language || globalThis.navigator?.language);
     const order = this._tileOrder();
     const definitions = new Map(HS_TILE_DEFINITIONS.map((definition) => [definition[0], definition]));
     list.innerHTML = order.map((metric) => {
       const definition = definitions.get(metric);
       const label = HS_TRANSLATIONS[lang][definition[2]] || HS_TRANSLATIONS.en[definition[2]] || metric;
       const checked = this._config[definition[1]] !== false ? " checked" : "";
-      const moveLabel = `${lang === "ru" ? "Перетащить" : "Move"}: ${label}`;
+      const moveLabel = `${HS_UI(lang).move}: ${label}`;
       return `<div class="tile-control-row" data-tile-metric="${metric}"><span class="tile-drag-handle" draggable="true" role="button" tabindex="0" aria-label="${moveLabel}">☰</span><span class="tile-control-label">${label}</span><ha-switch data-tile-toggle aria-label="${label}"${checked}></ha-switch></div>`;
     }).join("");
     list.querySelectorAll(".tile-control-row").forEach((row) => {

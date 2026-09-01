@@ -210,6 +210,36 @@ const reorderedMarkup = reorderedCard.shadowRoot.innerHTML;
 assert.ok(reorderedMarkup.indexOf('data-entity="sensor.healthsync_blood_oxygen"') < reorderedMarkup.indexOf('data-entity="sensor.healthsync_steps_today"'), "custom tile order must control the dashboard layout");
 reorderedCard.disconnectedCallback();
 
+const dutchCard = new Card();
+dutchCard.setConfig({ language: "nl", days: 3 });
+dutchCard.hass = { language: "en", states: healthsyncStates, callApi: async () => [], callWS: async () => ({}) };
+assert.equal(dutchCard._lang(), "nl", "an explicit nl config must win over the Home Assistant language");
+const dutchMarkup = dutchCard.shadowRoot.innerHTML;
+assert.match(dutchMarkup, /Stappen/);
+assert.match(dutchMarkup, /Actieve calorie\u00ebn/);
+assert.match(dutchMarkup, /Hartslag in rust/);
+assert.match(dutchMarkup, /Zuurstof in bloed/);
+assert.match(dutchMarkup, /Slaapfasen \u00b7 3 dagen/);
+assert.match(dutchMarkup, /Niet gespecificeerd/);
+assert.match(dutchMarkup, /8\.426/, "Dutch formatting must use a dot as the thousands separator");
+assert.doesNotMatch(dutchMarkup, /Resting heart rate|Blood oxygen|Sleep stages|Unspecified|Synced/);
+dutchCard._switchTab("workouts");
+assert.match(dutchCard.shadowRoot.innerHTML, /Laatste training/);
+assert.match(dutchCard.shadowRoot.innerHTML, /Hardlopen/);
+assert.match(dutchCard.shadowRoot.innerHTML, /Krachttraining/);
+assert.doesNotMatch(dutchCard.shadowRoot.innerHTML, /Latest workout|Traditional Strength Training/);
+dutchCard.disconnectedCallback();
+
+const autoDutchCard = new Card();
+autoDutchCard.setConfig({ days: 3 });
+autoDutchCard.hass = { language: "nl-NL", states: healthsyncStates, callApi: async () => [], callWS: async () => ({}) };
+assert.equal(autoDutchCard._lang(), "nl", "the Home Assistant language must select Dutch automatically");
+assert.match(autoDutchCard.shadowRoot.innerHTML, /Stappen/);
+autoDutchCard.disconnectedCallback();
+
+const languageOptions = Card.getConfigForm().schema.find((field) => field.name === "language");
+assert.deepEqual(languageOptions.selector.select.options.map((option) => option.value), ["auto", "en", "ru", "nl"]);
+
 const interactionRender = card._render.bind(card);
 let interactionRenderCount = 0;
 card._render = () => { interactionRenderCount += 1; return interactionRender(); };

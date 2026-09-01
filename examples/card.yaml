@@ -1,6 +1,6 @@
 type: custom:healthsync-dashboard-card
-title: Здоровье
-language: ru
+title: Gezondheid
+language: nl
 days: 7
 step_goal: 10000
 calorie_goal: 600
@@ -9,20 +9,20 @@ show_sleep: true
 show_heart_rate: true
 show_workouts_tab: true
 
-# Необязательный пользовательский порядок плиток:
+# Optionele eigen volgorde van de tegels:
 # tile_order:
 #   - heart_rate
 #   - blood_oxygen
 #   - steps
 #   - active_calories
 
-# Необязательно: устройство для точных исходных точек графика пульса
-# (можно выбрать через графический редактор; без него карточка попробует
-# определить устройство автоматически).
+# Optioneel: apparaat voor exacte meetpunten in de hartslaggrafiek
+# (te kiezen via de grafische editor; zonder deze instelling probeert de
+# kaart het apparaat automatisch te bepalen).
 # device_id: 0123456789abcdef0123456789abcdef
 
-# Сущности стандартной установки HealthSync определяются автоматически.
-# При переименовании их можно указать вручную:
+# De entiteiten van een standaardinstallatie van HealthSync worden automatisch
+# gevonden. Zijn ze hernoemd, dan kun je ze hier handmatig opgeven:
 # entities:
 #   steps: sensor.healthsync_steps_today
 #   active_calories: sensor.healthsync_active_calories_today

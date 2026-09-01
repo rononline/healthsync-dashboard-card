@@ -1,4 +1,4 @@
-[Original README in English](README.md)
+[Original README in English](README.md) · [Nederlandse versie](README.nl.md)
 
 # HealthSync Dashboard Card
 
@@ -32,7 +32,7 @@
 - Новые плитки HealthSync `0.12.0`: этажи, упражнения, энергия покоя, дистанция, VO₂ max и вес
 - Переключатель `show_workouts_tab` в графическом редакторе и YAML
 - Компактная адаптивная раскладка для Masonry и Sections
-- Русский и английский интерфейс
+- Русский, английский и нидерландский интерфейс
 
 ## Требования
 
